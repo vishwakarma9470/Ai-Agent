@@ -1,9 +1,9 @@
-# Code Map - Industry Data Reasoning Agent V2
+# Industry Data Reasoning Agent V2
 
 Agar `src/src/__init__.py` almost empty dikhe to ye normal hai. 
 Python packages me `__init__.py` sirf package marker hota hai. Real code modules me hota hai.
 
-## Main entry files
+## Main files
 
 - `cli.py`  
   Terminal se project run karta hai.
@@ -89,7 +89,7 @@ Python packages me `__init__.py` sirf package marker hota hai. Real code modules
 - `src/src/tools/visualization.py`  
   Matplotlib chart generation.
 
-## Pehle ye file samjho
+## understood the file 
 
 1. `src/src/pipeline.py`
 2. `src/src/agents/planner.py`
