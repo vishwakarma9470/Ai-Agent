@@ -1,0 +1,27 @@
+services:
+  api:
+    build: .
+    command: uvicorn api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app/src
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+      - ADMIN_API_KEY=${ADMIN_API_KEY:-admin-dev-key}
+      - ANALYST_API_KEY=${ANALYST_API_KEY:-analyst-dev-key}
+      - VIEWER_API_KEY=${VIEWER_API_KEY:-viewer-dev-key}
+    volumes:
+      - ./runs:/app/runs
+
+  ui:
+    build: .
+    command: streamlit run app_streamlit.py --server.address=0.0.0.0 --server.port=8501
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONPATH=/app/src
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+    volumes:
+      - ./runs:/app/runs
